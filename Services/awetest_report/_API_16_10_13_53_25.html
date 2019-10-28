@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Awetest Service Report</title>
+    <link href="http://awetest.com/favicon.ico" rel="shortcut icon">
+
+    <script src="https://awetest.com/assets/test_base/service_api_log.js" type="text/javascript"></script>
+    <link href="https://awetest.com/assets/service_report.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="https://awetest.com/assets/jquery.js"   type="text/javascript"></script>
+    <script src="https://awetest.com/assets/clipboard.min.js"   type="text/javascript"></script>
+    <script src="https://awetest.com/assets/Chart.js"   type="text/javascript"></script>
+    <script type="text/javascript" src="http://awetest.com/system/downloads/Report/awetest_part.js"></script>
+    <script type="text/javascript" src="http://awetest.com/system/downloads/Report/json2xml.js"></script>
+    <script type="text/javascript" src="http://awetest.com/system/downloads/Report/highlight.pack.js"></script>
+    <!--[if IE]>
+    <style>
+        .inner-table-wrapper {
+            position: relative;
+            left: -1px;
+        }
+    </style>
+    <![endif]-->
+
+</head>
+<body>
+<header class="header"></header>
+<div class="left-tab"></div>
+<div class="wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="gl_page_inner">
+                <div class="gl_hr_header">
+                    <div class="header-element"><a href="" class="header-element-link">Test Report</a></div>
+                </div>
+                <div class="design-body">
+                    <div class="information-block">
+                        <div class="inf-bottom-part">
+                            <div class="main-info-wrapper">
+                                <div>
+                                    <span class="sprite sprite-i-multi-storey-building-white"></span>Total Time: <span id="total-time"></span> Seconds
+                                </div>
+                                <div>
+                                    <span class="sprite sprite-i-multi-storey-building-white"></span># of Scenarios: <span id="total-scenario-number"></span>
+                                </div>
+                                <div>
+                                    <span class="sprite sprite-i-multi-storey-building-white"></span>
+                                </div>
+                                <div><span class="sprite sprite-i-multi-storey-building-white"></span># Passed: <span id="passed-scenario-number"></span></div>
+                                <div>
+                                    <span class="sprite sprite-i-multi-storey-building-white"></span>
+                                </div>
+                                <div><span class="sprite sprite-i-multi-storey-building-white"></span>Pass %: <span id="pass-percentage"></span></div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart1" height="120px" width="120px"></canvas>
+                                <div class="chartjs-tooltip" id="chart-tooltip"></div>
+                                <div id="spfg_legend"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="information-table">
+                        <div class="table-control-row">
+                            <p class="active left-control expand-button closed" data-target="all">EXPAND ALL</p>
+                            <p class="right-control toggle-errors active">ALL</p>
+                            <p class="right-control toggle-errors">ERRORS</p>
+                            <p class="right-control">SHOW</p>
+                        </div>
+
+                        <table class="inf-table">
+                            <thead class="table-head">
+                                <tr>
+                                    <th width="39">#</th>
+                                    <th width="150">ID</th>
+                                    <th width="121">URL</th>
+                                    <th width="160">Scenario</th>
+                                    <th width="96">Date/Time</th>
+                                    <th width="67">Method</th>
+                                    <th width="90">Duration</th>
+                                    <th width="86">Exp Code</th>
+                                    <th width="86">Actual Code</th>
+                                    <th width="88">Result</th>
+                                </tr>
+                            </thead>
+
+                            <tbody><tr class='fail scenario' id='scenario1'>
+                                    <td width='39'>
+                                        <div class='jump-wrapper'>
+                                            <div data-destination='#scenario0'>↑</div>
+                                            <div data-destination='#scenario2'>↓</div>
+                                        </div>
+                                        <span class='expand-button closed' data-target='.expand-1'></span>1
+                                    </td>
+                                    <td width='80'>createAccount</td>
+                                    <td width='121'><a href='salesforce_instanceaccount' class='table-link'>salesforce_instanceaccount</a></td>
+                                    <td width='235'>Create a new account</td>
+                                    <td width='96'>2019-10-16 13:53:25 -0700</td>
+                                    <td width='67'>POST</td>
+                                    <td width='90' class='single-scenario-time'>1058</td>
+                                    <td width='86'>201</td>
+                                    <td width='86'>0</td><td width='90' class='result-fail result-count fail-count'><span class='sprite sprite-i-failed-red'></span>Fail</td><tr class='expand-row'>
+      <td class='no-padding no-border' colspan='10'>
+          <div class='inner-table-wrapper expand-1 hide'><span class='tab-toggle summary active' data-target='summary'>Summary</span>
+                    <span class='tab-toggle log' data-target='log'>Log</span>
+                    <span class='tab-toggle xml' data-target='xml'>Xml</span><table class='inf-table tab-content' id='summary-1'>
+                  <tr>
+                      <th>Request</th>
+                      <th>Expected Response</th>
+                      <th>Actual Response</th>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class='tooltip copy-to-clipboard'>
+                            <div class='sprite sprite-i-list-grey ripplelink'></div>
+                            <div class='tooltip-inner'>
+                                <div class='tooltip-ir-inner'>
+                                    Copy to clipboard
+                                </div>
+                            </div>
+                        </div>
+                        <div class='json-wrapper'>
+                            Headers<br>
+                            <pre>{
+}</pre>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='tooltip copy-to-clipboard'>
+                            <div class='sprite sprite-i-list-grey ripplelink'></div>
+                            <div class='tooltip-inner'>
+                                <div class='tooltip-ir-inner'>
+                                    Copy to clipboard
+                                </div>
+                            </div>
+                        </div>
+                        <div class='json-wrapper'>
+                            Headers<br>
+                            <pre>{
+}</pre>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='tooltip copy-to-clipboard'>
+                            <div class='sprite sprite-i-list-grey ripplelink'></div>
+                            <div class='tooltip-inner'>
+                                <div class='tooltip-ir-inner'>
+                                    Copy to clipboard
+                                </div>
+                            </div>
+                        </div>
+                        <div class='json-wrapper'>
+                            Headers<br>
+                            <pre>{
+}</pre>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <pre>{
+    "Name":"Test_Account_RANDOM_NUMBER",
+    "ShippingCity":"San Francisco"
+}</pre>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <pre></pre>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <pre></pre>
+                          </div>
+                      </td>
+                  </tr>
+                </table><table class='inf-table tab-content hide' id='log-1'>
+                      <tr><td><div style='max-height:500px; overflow: auto;
+  margin-bottom: 10px;'><pre>
+********* ERROR ********* 
+ Error: Failed to open TCP connection to salesforce_instanceaccount:80 (getaddrinfo: No such host is known. )
+ [&quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/net/http.rb:882:in `rescue in block in connect&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/net/http.rb:879:in `block in connect&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/timeout.rb:91:in `block in timeout&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/timeout.rb:101:in `timeout&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/net/http.rb:878:in `connect&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/net/http.rb:863:in `do_start&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/2.3.0/net/http.rb:852:in `start&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/rest-client-1.8.0-x86-mingw32/lib/restclient/request.rb:413:in `transmit&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/rest-client-1.8.0-x86-mingw32/lib/restclient/request.rb:176:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/rest-client-1.8.0-x86-mingw32/lib/restclient/request.rb:41:in `execute&#39;&quot;, &quot;C:/Users/Awetest/Desktop/Transfer Data/salesforce_accelerator/salesforce_accelerator/Services/features/step_definitions/functions_classes_api.rb:561:in `rest_service_call&#39;&quot;, &quot;C:/Users/Awetest/Desktop/Transfer Data/salesforce_accelerator/salesforce_accelerator/Services/features/step_definitions/functions_classes_api.rb:86:in `run_test&#39;&quot;, &quot;C:/Users/Awetest/Desktop/Transfer Data/salesforce_accelerator/salesforce_accelerator/Services/features/step_definitions/predefined_steps_api.rb:73:in `block in &lt;top (required)&gt;&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/core_ext/instance_exec.rb:25:in `instance_exec&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/core_ext/instance_exec.rb:25:in `block in cucumber_instance_exec&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/core_ext/instance_exec.rb:42:in `cucumber_run_with_backtrace_filtering&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/core_ext/instance_exec.rb:13:in `cucumber_instance_exec&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/rb_support/rb_step_definition.rb:102:in `invoke&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/step_match.rb:27:in `invoke&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/step_match.rb:20:in `block in activate&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/action.rb:23:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/step.rb:31:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:104:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:51:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:26:in `test_step&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/step.rb:16:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:26:in `block (3 levels) in describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:25:in `each&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:25:in `block (2 levels) in describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/prepare_world.rb:22:in `block in test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/around_hook.rb:16:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:104:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:51:in `execute&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:33:in `around_hook&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/around_hook.rb:11:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:106:in `block (2 levels) in compose_around_hooks&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:107:in `compose_around_hooks&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:24:in `block in describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/runner.rb:18:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/prepare_world.rb:11:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/apply_around_hooks.rb:8:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/apply_after_hooks.rb:5:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/apply_before_hooks.rb:5:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/apply_after_step_hooks.rb:8:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/activate_steps.rb:11:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/filters/quit.rb:11:in `test_case&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/case.rb:23:in `describe_to&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/filters/locations_filter.rb:17:in `block in done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/filters/locations_filter.rb:16:in `each&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/filters/locations_filter.rb:16:in `done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/filter.rb:61:in `done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/test/filters/tag_filter.rb:18:in `done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/compiler.rb:23:in `done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core/gherkin/parser.rb:35:in `done&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core.rb:29:in `parse&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-core-1.5.0/lib/cucumber/core.rb:18:in `compile&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/runtime.rb:67:in `run!&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/lib/cucumber/cli/main.rb:32:in `execute!&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/cucumber-2.4.0/bin/cucumber:8:in `&lt;top (required)&gt;&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/bin/cucumber:22:in `load&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/bin/cucumber:22:in `&lt;top (required)&gt;&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/ruby-debug-ide-0.6.1/lib/ruby-debug-ide.rb:92:in `debug_load&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/ruby-debug-ide-0.6.1/lib/ruby-debug-ide.rb:92:in `debug_program&#39;&quot;, &quot;C:/Users/Awetest/awetest/Vendor/ruby-2.0.0-p451/lib/ruby/gems/2.3.0/gems/ruby-debug-ide-0.6.1/bin/rdebug-ide:182:in `&lt;top (required)&gt;&#39;&quot;, &quot;-e:1:in `load&#39;&quot;, &quot;-e:1:in `&lt;main&gt;&#39;&quot;]
+ ******************
+Execution Time: 1073 ms
+********* Test Started ***********
+*********************************
+Request: POST
+URL: salesforce_instanceaccount
+************Header***************
+************Request**************
+{
+    &quot;Name&quot;:&quot;Test_Account_RANDOM_NUMBER&quot;,
+    &quot;ShippingCity&quot;:&quot;San Francisco&quot;
+}
+*********************************
+************Response*************
+Status: 0
+Duration: 1058 ms
+
+******Response Headers***********
+{
+}
+*********************************
+** Response is not a json and did not parse with custom function
+A JSON text must at least contain two octets!
+************
+***Current Params****
+{
+    &quot;capturedResponse&quot;:&quot;&quot;
+}
+***test items**
+
+*********************
+*********** Test Fail.***********
+</pre></div></td></tr>
+                    </table>
+              <table class='inf-table tab-content hide' id='xml-1'>
+                  <tr>
+                      <th>Request</th>
+                      <th>Expected Response</th>
+                      <th>Actual Response</th>
+                  </tr><tr>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Headers<br>
+                              <div class='json-to-xml'>{
+}</div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Headers<br>
+                              <div class='json-to-xml'>{
+}</div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Headers<br>
+                              <div class='json-to-xml'>{
+}</div>
+                          </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <div class='json-to-xml'>{
+    "Name":"Test_Account_RANDOM_NUMBER",
+    "ShippingCity":"San Francisco"
+}</div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <div class='json-to-xml'></div>
+                          </div>
+                      </td>
+                      <td>
+                          <div class='tooltip copy-to-clipboard'>
+                              <div class='sprite sprite-i-list-grey ripplelink'></div>
+                              <div class='tooltip-inner'>
+                                  <div class='tooltip-ir-inner'>
+                                      Copy to clipboard
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='json-wrapper'>
+                              Body<br>
+                              <div class='json-to-xml'></div>
+                          </div>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+      </td>
+  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="return-to-top"><i class="sprite sprite-i-dropdown-grey"></i></div>
+
+<script type="text/javascript">
+    function formatXml(xml) {
+        var formatted = "";
+        var reg = /(>)(<)(\/*)/g;
+        xml = xml.replace(reg, "$1\r\n$2$3");
+        var pad = 0;
+        jQuery.each(xml.split("\r\n"), function(index, node) {
+            var indent = 0;
+            if (node.match( /.+<\/\w[^>]*>$/ )) {
+                indent = 0;
+            } else if (node.match( /^<\/\w/ )) {
+                if (pad != 0) {
+                    pad -= 1;
+                }
+            } else if (node.match( /^<\w[^>]*[^\/]>.*$/ )) {
+                indent = 1;
+            } else {
+                indent = 0;
+            }
+
+            var padding = "";
+            for (var i = 0; i < pad; i++) {
+                padding += "  ";
+            }
+
+            formatted += padding + node + "\r\n";
+            pad += indent;
+        });
+
+        return formatted;
+    }
+
+    var totalScenarioNumber = $(".result-count").length;
+    var passedScenarioNumber = $(".result-count.pass-count").length;
+    var passPercentage = (passedScenarioNumber * 100 / totalScenarioNumber).toFixed(2) + "%";
+    $("#total-scenario-number").html(totalScenarioNumber);
+    $("#passed-scenario-number").html(passedScenarioNumber);
+    $("#pass-percentage").html(passPercentage);
+    var totalTimeInSecond = 0;
+    $(".single-scenario-time").each(function () {
+        var timeText = $(this).html();
+        totalTimeInSecond += Number(timeText.split(" ")[0]);
+    });
+		var totalTimeInSec = Math.round(totalTimeInSecond);
+    $("#total-time").html(totalTimeInSec);
+
+    $(".json-to-xml").each(function () {
+        var validJson = false;
+        var originalJson = $(this).text();
+        var preParseJson = originalJson.replace(/=>/g, ":");
+        var realJson = preParseJson;
+        try {
+            realJson = JSON.parse(preParseJson);
+            validJson = true;
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+        if (validJson == true) {
+            var finalXml = realJson;
+            try {
+                finalXml = json2xml(realJson);
+            }
+            catch (err) {
+                console.log(err.message);
+            }
+            var xmlHead = "<pre><code class=\"xml\">";
+            var xmlTail = "</code></pre>";
+            var lol = (formatXml(finalXml));
+            var replacedFinalXml = lol.replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  $(this).html(xmlHead + replacedFinalXml + xmlTail);
+  }
+  });
+  hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>

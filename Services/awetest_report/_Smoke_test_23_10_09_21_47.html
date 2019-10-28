@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="style.css" rel="stylesheet"/>
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript">
+			$(document).ready(function() {
+
+					//Hide show expanded block
+					$(".expand-button").click(function() {
+							var targetEl = $(this).attr("data-target");
+
+							if(targetEl == "all") {
+									if(isAllClosed(".inner-table-wrapper")) {
+											$(".inner-table-wrapper").removeClass("hide");
+											$(".expand-button").removeClass("closed");
+									} else {
+											$(".inner-table-wrapper").addClass("hide");
+											$(".expand-button").addClass("closed");
+									}
+							} else {
+									$(targetEl).find(".inner-table-wrapper").toggleClass("hide");
+									$(this).toggleClass("closed");
+							}
+					});
+
+					function isAllClosed(elem) {
+							var result = true;
+							$(elem).each(function(index, current) {
+									if(!$(current).hasClass("hide")) result = false;
+							});
+							return result;
+					}
+			});
+</script>
+
+</head>
+<body>
+    <div class="left-tab"></div>
+    <div class="wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="gl_page_inner">
+                    <div class="design-body">
+                        <div class="information-table">
+                            <div class="table-control-row">
+                                <p class="active left-control expand-button closed" data-target="all">EXPAND ALL</p>
+                                <p class="right-control active">ALL</p>
+                                <p class="right-control">ERRORS</p>
+                                <p class="right-control">SHOW</p>
+                            </div>
+
+                            <table class="inf-table">
+                                <thead class="table-head">
+                                <tr>
+                                    <th width="39">#</th>
+                                    <th width="80">ID</th>
+                                    <th width="121">URL</th>
+                                    <th width="230">Scenario</th>
+                                    <th width="96">Date/Time</th>
+                                    <th width="67">Method</th>
+                                    <th width="90">Duration</th>
+                                    <th width="86">Exp Code</th>
+                                    <th width="86">Actual Code</th>
+                                    <th width="88">Result</th>
+                                </tr>
+                                </thead>
+
+                                <tbody><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-1'>1</td>
+                                    <td width='80'>1</td>
+                                    <td width='121'><a href='https://na112.salesforce.com/services/data/v45.0/sobjects/account/' class='table-link'>https://na112.salesforce.com/services/data/v45.0/sobjects/account/</a></td>
+                                    <td width='235'>createAccount</td>
+                                    <td width='96'>2019-10-23 09:21:47 -0700</td>
+                                    <td width='67'>POST</td>
+                                    <td width='90'>359</td>
+                                    <td width='86'>201</td>
+                                    <td width='86'>201</td><td width='90' class='result-fail'><span class='sprite sprite-i-failed-red'></span>Fail</td></tr>
+                                <tr class='expand-row expand-1'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+												<td class='error-row' colspan='3'>Error: TODO</td>
+                                                </tr><tr>
+                                                    <td>Headers<br>{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer 00D3i000000vMcj!AQ0AQKIp7NCnvx7G5ONraq2bObxyFQwNlUCHPo_JZtf1mP.q_N8H4PIuUeZOKoI5lS__EG6N3ERnmM2eAEDa1pe9_4JTBo1N",
+    "Accept":"application/json"
+}</td>
+                                                    <td>Expected Headers<br>{
+    "date":"STRING"
+}</td>
+                                                    <td>Actual Headers<br>{
+    "date":"Wed, 23 Oct 2019 16:21:43 GMT",
+    "strict-transport-security":"max-age=31536000; includeSubDomains",
+    "public-key-pins-report-only":"pin-sha256=\"9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY=\"; pin-sha256=\"5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=\"; pin-sha256=\"njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g=\"; max-age=86400; includeSubDomains; report-uri=\"https://a.forcesslreports.com/hpkp-report/nullm\";",
+    "expect-ct":"max-age=86400, report-uri=\"https://a.forcesslreports.com/Expect-CT-report/nullm\"",
+    "x-content-type-options":"nosniff",
+    "x-xss-protection":"1; mode=block",
+    "x-robots-tag":"none",
+    "cache-control":"no-cache,must-revalidate,max-age=0,no-store,private",
+    "set-cookie":"BrowserId=M64GL_WxEeme58-jAYC8ZA;Path=/;Domain=.salesforce.com;Expires=Sun, 22-Dec-2019 16:21:43 GMT;Max-Age=5184000",
+    "expires":"Thu, 01 Jan 1970 00:00:00 GMT",
+    "sforce-limit-info":"api-usage=27/15000",
+    "location":"/services/data/v45.0/sobjects/Account/0013i00000A4IMyAAN",
+    "content-type":"application/json;charset=UTF-8",
+    "vary":"Accept-Encoding",
+    "content-encoding":"gzip",
+    "transfer-encoding":"chunked"
+}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br>{
+    "Name":"DxvfPmDdPC",
+    "ShippingCity":"San Francisco"
+}</td>
+                                                    <td>Expected Response<br>{
+    "id":"STRING_ALPHA_NUMERIC"
+}</td>
+                                                    <td>Actual Response<br>{
+    "id":"0013i00000A4IMyAAN",
+    "success":true,
+    "errors":[
+
+    ]
+}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

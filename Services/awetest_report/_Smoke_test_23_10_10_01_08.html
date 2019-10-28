@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="style.css" rel="stylesheet"/>
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript">
+			$(document).ready(function() {
+
+					//Hide show expanded block
+					$(".expand-button").click(function() {
+							var targetEl = $(this).attr("data-target");
+
+							if(targetEl == "all") {
+									if(isAllClosed(".inner-table-wrapper")) {
+											$(".inner-table-wrapper").removeClass("hide");
+											$(".expand-button").removeClass("closed");
+									} else {
+											$(".inner-table-wrapper").addClass("hide");
+											$(".expand-button").addClass("closed");
+									}
+							} else {
+									$(targetEl).find(".inner-table-wrapper").toggleClass("hide");
+									$(this).toggleClass("closed");
+							}
+					});
+
+					function isAllClosed(elem) {
+							var result = true;
+							$(elem).each(function(index, current) {
+									if(!$(current).hasClass("hide")) result = false;
+							});
+							return result;
+					}
+			});
+</script>
+
+</head>
+<body>
+    <div class="left-tab"></div>
+    <div class="wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="gl_page_inner">
+                    <div class="design-body">
+                        <div class="information-table">
+                            <div class="table-control-row">
+                                <p class="active left-control expand-button closed" data-target="all">EXPAND ALL</p>
+                                <p class="right-control active">ALL</p>
+                                <p class="right-control">ERRORS</p>
+                                <p class="right-control">SHOW</p>
+                            </div>
+
+                            <table class="inf-table">
+                                <thead class="table-head">
+                                <tr>
+                                    <th width="39">#</th>
+                                    <th width="80">ID</th>
+                                    <th width="121">URL</th>
+                                    <th width="230">Scenario</th>
+                                    <th width="96">Date/Time</th>
+                                    <th width="67">Method</th>
+                                    <th width="90">Duration</th>
+                                    <th width="86">Exp Code</th>
+                                    <th width="86">Actual Code</th>
+                                    <th width="88">Result</th>
+                                </tr>
+                                </thead>
+
+                                <tbody><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-1'>1</td>
+                                    <td width='80'>1</td>
+                                    <td width='121'><a href='https://na112.salesforce.com/services/data/v45.0/sobjects/account/' class='table-link'>https://na112.salesforce.com/services/data/v45.0/sobjects/account/</a></td>
+                                    <td width='235'>createAccount</td>
+                                    <td width='96'>2019-10-23 10:01:06 -0700</td>
+                                    <td width='67'>POST</td>
+                                    <td width='90'>312</td>
+                                    <td width='86'>201</td>
+                                    <td width='86'>201</td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-1'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br>{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer 00D3i000000vMcj!AQ0AQKIp7NCnvx7G5ONraq2bObxyFQwNlUCHPo_JZtf1mP.q_N8H4PIuUeZOKoI5lS__EG6N3ERnmM2eAEDa1pe9_4JTBo1N",
+    "Accept":"application/json"
+}</td>
+                                                    <td>Expected Headers<br>{
+    "date":"STRING"
+}</td>
+                                                    <td>Actual Headers<br>{
+    "date":"Wed, 23 Oct 2019 17:01:06 GMT",
+    "strict-transport-security":"max-age=31536000; includeSubDomains",
+    "public-key-pins-report-only":"pin-sha256=\"9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY=\"; pin-sha256=\"5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=\"; pin-sha256=\"njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g=\"; max-age=86400; includeSubDomains; report-uri=\"https://a.forcesslreports.com/hpkp-report/nullm\";",
+    "expect-ct":"max-age=86400, report-uri=\"https://a.forcesslreports.com/Expect-CT-report/nullm\"",
+    "x-content-type-options":"nosniff",
+    "x-xss-protection":"1; mode=block",
+    "x-robots-tag":"none",
+    "cache-control":"no-cache,must-revalidate,max-age=0,no-store,private",
+    "set-cookie":"BrowserId=tBx-pPW2EemL7KlqvT6cQw;Path=/;Domain=.salesforce.com;Expires=Sun, 22-Dec-2019 17:01:06 GMT;Max-Age=5184000",
+    "expires":"Thu, 01 Jan 1970 00:00:00 GMT",
+    "sforce-limit-info":"api-usage=32/15000",
+    "location":"/services/data/v45.0/sobjects/Account/0013i00000A4Ib0AAF",
+    "content-type":"application/json;charset=UTF-8",
+    "vary":"Accept-Encoding",
+    "content-encoding":"gzip",
+    "transfer-encoding":"chunked"
+}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br>{
+    "Name":"MDSDtBRApV",
+    "ShippingCity":"San Francisco"
+}</td>
+                                                    <td>Expected Response<br>{
+    "id":"STRING_ALPHA_NUMERIC"
+}</td>
+                                                    <td>Actual Response<br>{
+    "id":"0013i00000A4Ib0AAF",
+    "success":true,
+    "errors":[
+
+    ]
+}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-2'>2</td>
+                                    <td width='80'>2</td>
+                                    <td width='121'><a href='https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4Ib5AAF' class='table-link'>https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4Ib5AAF</a></td>
+                                    <td width='235'>getAccount</td>
+                                    <td width='96'>2019-10-23 10:01:07 -0700</td>
+                                    <td width='67'>GET</td>
+                                    <td width='90'>211</td>
+                                    <td width='86'>201</td>
+                                    <td width='86'>200</td><td width='90' class='result-fail'><span class='sprite sprite-i-failed-red'></span>Fail</td></tr>
+                                <tr class='expand-row expand-2'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+												<td class='error-row' colspan='3'>Error: TODO</td>
+                                                </tr><tr>
+                                                    <td>Headers<br>{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer 00D3i000000vMcj!AQ0AQKIp7NCnvx7G5ONraq2bObxyFQwNlUCHPo_JZtf1mP.q_N8H4PIuUeZOKoI5lS__EG6N3ERnmM2eAEDa1pe9_4JTBo1N",
+    "Accept":"application/json"
+}</td>
+                                                    <td>Expected Headers<br>{
+    "date":"STRING"
+}</td>
+                                                    <td>Actual Headers<br>{
+    "date":"Wed, 23 Oct 2019 17:01:07 GMT",
+    "strict-transport-security":"max-age=31536000; includeSubDomains",
+    "public-key-pins-report-only":"pin-sha256=\"9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY=\"; pin-sha256=\"5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=\"; pin-sha256=\"njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g=\"; max-age=86400; includeSubDomains; report-uri=\"https://a.forcesslreports.com/hpkp-report/nullm\";",
+    "expect-ct":"max-age=86400, report-uri=\"https://a.forcesslreports.com/Expect-CT-report/nullm\"",
+    "x-content-type-options":"nosniff",
+    "x-xss-protection":"1; mode=block",
+    "x-robots-tag":"none",
+    "cache-control":"no-cache,must-revalidate,max-age=0,no-store,private",
+    "set-cookie":"BrowserId=tK1NVvW2Eem65YfFZxhCqg;Path=/;Domain=.salesforce.com;Expires=Sun, 22-Dec-2019 17:01:07 GMT;Max-Age=5184000",
+    "expires":"Thu, 01 Jan 1970 00:00:00 GMT",
+    "sforce-limit-info":"api-usage=32/15000",
+    "etag":"\"gTI7lF2oYMlDxM+gTW1a62nzqxfxxihRqAygUNh9DPs=--gzip\"",
+    "last-modified":"Wed, 23 Oct 2019 17:01:07 GMT",
+    "content-type":"application/json;charset=UTF-8",
+    "vary":"Accept-Encoding",
+    "content-encoding":"gzip",
+    "transfer-encoding":"chunked"
+}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br>{
+    "attributes":{
+        "type":"Account",
+        "url":"/services/data/v45.0/sobjects/Account/0013i00000A4Ib5AAF"
+    },
+    "Id":"0013i00000A4Ib5AAF",
+    "IsDeleted":false,
+    "MasterRecordId":null,
+    "Name":"KwsxxGDQLn",
+    "Type":null,
+    "ParentId":null,
+    "BillingStreet":null,
+    "BillingCity":null,
+    "BillingState":null,
+    "BillingPostalCode":null,
+    "BillingCountry":null,
+    "BillingLatitude":null,
+    "BillingLongitude":null,
+    "BillingGeocodeAccuracy":null,
+    "BillingAddress":null,
+    "ShippingStreet":null,
+    "ShippingCity":"San Francisco",
+    "ShippingState":null,
+    "ShippingPostalCode":null,
+    "ShippingCountry":null,
+    "ShippingLatitude":null,
+    "ShippingLongitude":null,
+    "ShippingGeocodeAccuracy":null,
+    "ShippingAddress":{
+        "city":"San Francisco",
+        "country":null,
+        "geocodeAccuracy":null,
+        "latitude":null,
+        "longitude":null,
+        "postalCode":null,
+        "state":null,
+        "street":null
+    },
+    "Phone":null,
+    "Fax":null,
+    "AccountNumber":null,
+    "Website":null,
+    "PhotoUrl":"/services/images/photo/0013i00000A4Ib5AAF",
+    "Sic":null,
+    "Industry":null,
+    "AnnualRevenue":null,
+    "NumberOfEmployees":null,
+    "Ownership":null,
+    "TickerSymbol":null,
+    "Description":null,
+    "Rating":null,
+    "Site":null,
+    "OwnerId":"0053i000002BxkIAAS",
+    "CreatedDate":"2019-10-23T17:01:07.000+0000",
+    "CreatedById":"0053i000002BxkIAAS",
+    "LastModifiedDate":"2019-10-23T17:01:07.000+0000",
+    "LastModifiedById":"0053i000002BxkIAAS",
+    "SystemModstamp":"2019-10-23T17:01:07.000+0000",
+    "LastActivityDate":null,
+    "LastViewedDate":"2019-10-23T17:01:07.000+0000",
+    "LastReferencedDate":"2019-10-23T17:01:07.000+0000",
+    "Jigsaw":null,
+    "JigsawCompanyId":null,
+    "CleanStatus":"Pending",
+    "AccountSource":null,
+    "DunsNumber":null,
+    "Tradestyle":null,
+    "NaicsCode":null,
+    "NaicsDesc":null,
+    "YearStarted":null,
+    "SicDesc":null,
+    "DandbCompanyId":null,
+    "CustomerPriority__c":null,
+    "SLA__c":null,
+    "Active__c":null,
+    "NumberofLocations__c":null,
+    "UpsellOpportunity__c":null,
+    "SLASerialNumber__c":null,
+    "SLAExpirationDate__c":null
+}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-3'>3</td>
+                                    <td width='80'>3</td>
+                                    <td width='121'><a href='https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4IbAAAV' class='table-link'>https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4IbAAAV</a></td>
+                                    <td width='235'>deleteAccount</td>
+                                    <td width='96'>2019-10-23 10:01:08 -0700</td>
+                                    <td width='67'>DELETE</td>
+                                    <td width='90'>356</td>
+                                    <td width='86'>0</td>
+                                    <td width='86'>204</td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-3'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br>{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer 00D3i000000vMcj!AQ0AQKIp7NCnvx7G5ONraq2bObxyFQwNlUCHPo_JZtf1mP.q_N8H4PIuUeZOKoI5lS__EG6N3ERnmM2eAEDa1pe9_4JTBo1N",
+    "Accept":"application/json"
+}</td>
+                                                    <td>Expected Headers<br>{
+    "date":"STRING"
+}</td>
+                                                    <td>Actual Headers<br>{
+    "date":"Wed, 23 Oct 2019 17:01:08 GMT",
+    "strict-transport-security":"max-age=31536000; includeSubDomains",
+    "public-key-pins-report-only":"pin-sha256=\"9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY=\"; pin-sha256=\"5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=\"; pin-sha256=\"njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g=\"; max-age=86400; includeSubDomains; report-uri=\"https://a.forcesslreports.com/hpkp-report/nullm\";",
+    "expect-ct":"max-age=86400, report-uri=\"https://a.forcesslreports.com/Expect-CT-report/nullm\"",
+    "x-content-type-options":"nosniff",
+    "x-xss-protection":"1; mode=block",
+    "content-security-policy":"upgrade-insecure-requests",
+    "x-robots-tag":"none",
+    "cache-control":"no-cache,must-revalidate,max-age=0,no-store,private",
+    "set-cookie":"BrowserId=tVUljPW2Eem2exOnem1esw;Path=/;Domain=.salesforce.com;Expires=Sun, 22-Dec-2019 17:01:08 GMT;Max-Age=5184000",
+    "expires":"Thu, 01 Jan 1970 00:00:00 GMT",
+    "sforce-limit-info":"api-usage=32/15000"
+}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-4'>4</td>
+                                    <td width='80'>4</td>
+                                    <td width='121'><a href='https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4IbAAAV' class='table-link'>https://na112.salesforce.com/services/data/v45.0/sobjects/account/0013i00000A4IbAAAV</a></td>
+                                    <td width='235'>validateDeletedAccount</td>
+                                    <td width='96'>2019-10-23 10:01:08 -0700</td>
+                                    <td width='67'>GET</td>
+                                    <td width='90'>270</td>
+                                    <td width='86'>0</td>
+                                    <td width='86'>404</td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-4'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br>{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer 00D3i000000vMcj!AQ0AQKIp7NCnvx7G5ONraq2bObxyFQwNlUCHPo_JZtf1mP.q_N8H4PIuUeZOKoI5lS__EG6N3ERnmM2eAEDa1pe9_4JTBo1N",
+    "Accept":"application/json"
+}</td>
+                                                    <td>Expected Headers<br>{
+    "date":"STRING"
+}</td>
+                                                    <td>Actual Headers<br>{
+    "date":"Wed, 23 Oct 2019 17:01:09 GMT",
+    "strict-transport-security":"max-age=31536000; includeSubDomains",
+    "public-key-pins-report-only":"pin-sha256=\"9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY=\"; pin-sha256=\"5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=\"; pin-sha256=\"njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g=\"; max-age=86400; includeSubDomains; report-uri=\"https://a.forcesslreports.com/hpkp-report/nullm\";",
+    "expect-ct":"max-age=86400, report-uri=\"https://a.forcesslreports.com/Expect-CT-report/nullm\"",
+    "x-content-type-options":"nosniff",
+    "x-xss-protection":"1; mode=block",
+    "x-robots-tag":"none",
+    "cache-control":"no-cache,must-revalidate,max-age=0,no-store,private",
+    "set-cookie":"BrowserId=tZt9P_W2EemyWw_nctjhOQ;Path=/;Domain=.salesforce.com;Expires=Sun, 22-Dec-2019 17:01:09 GMT;Max-Age=5184000",
+    "expires":"Thu, 01 Jan 1970 00:00:00 GMT",
+    "sforce-limit-info":"api-usage=33/15000",
+    "content-type":"application/json;charset=UTF-8",
+    "transfer-encoding":"chunked"
+}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br>[{"errorCode"=>"NOT_FOUND", "message"=>"The requested resource does not exist"}]</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

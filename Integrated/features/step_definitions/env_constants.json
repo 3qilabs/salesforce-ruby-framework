@@ -1,0 +1,86 @@
+{
+  "verify_ssl": false, // set the ssl to be verified or not
+  "request_timeout":60, //# of seconds to wait for the response from the server
+  //Params that apply to all the environments
+  "log_limit":10000, // limits applied to response body and headers and capture params in the log
+ // "trim_values_limit": [500, 10], // optionaly remove string values that are longer than this many charachters from the request/response. For better report view. Specify the length of value to tring and the leng to keep
+
+  //Params that apply to all the environments
+  "common_params":{
+	"campaignStatus": "Active"
+  },
+  //Params that are used for specific environment. Environment name must match the key
+    "env_params": {
+    "DEV": {
+      "authorization": "Bearer 00D3i000000vMcj!AQ0AQA74yNhlqTSA0K4VLJXP4PMFOrNp4_O9WABkRX9SgTI_V14367lI20eiuPySWTEeRDASEzRWv2b7GfzWGesJXBImSUnu"
+    },
+    "prod": {
+      "authorization": "Bearer 00D3i000000vMcj!AQ0AQA74yNhlqTSA0K4VLJXP4PMFOrNp4_O9WABkRX9SgTI_V14367lI20eiuPySWTEeRDASEzRWv2b7GfzWGesJXBImSUnu"
+    }
+  },
+
+  //Urls for each environment.  the key in the excel will be replaced with url when it matches with the key here.
+  // Environment name must match the key
+ 
+  "env_urls": {
+    "DEV": {
+      "url": "https://na112.salesforce.com/services/data/v45.0/sobjects/",
+      "token_url": "https://login.salesforce.com/services/oauth2/token"
+    },
+    "prod": {
+      "url": "https://na112.salesforce.com/services/data/v45.0/sobjects/",
+      "token_url": "https://login.salesforce.com/services/oauth2/token"
+    }
+  },
+  // list of keys that will be searched in the response body/headers and captured in the test params.
+  // use only if you don't know where the element will come in the response,
+  // otherwise use capture_paths to capture element values
+ 
+   "capture_params": [
+    "date", "id", "access_token"
+  ],
+
+
+  // key is the value you come up with to name what you are capturing.
+  //The path is the array specifying the tree in the json response. strings for keys and integers for arrays.
+  "capture_paths": {
+	"petId":["petList",0,"id", "integer"], //optionally specify to convert value to integer
+	"petName":["petList",0,"name"],
+	//"ID":["campaign","id"],
+	"referenceID":["responseBody"],
+	"CAPTURED_VALUE":["headers", "x-forwarded-port"],
+	"CAPTURED_COOKIE":["set-cookie"],
+	"ACCOUNT_ID": ["account","id"],
+	"DUE_AT": ["task","due_at"],
+	"TASK-ID": ["overdue",1,"task","id"],
+	"TASK-NAME": ["task","name"],
+	"CATEGORY": ["task","category"],
+	"ID": ["task","id"]
+  },
+
+  //specify proxy if you are blocked by your corporate policies and getting ssl issues
+  "proxy":{
+	"url": null, //default
+	"DEV": "http://proxy.mycompany.com" //environment based
+  },
+
+  //Customly created list of validation keys to be validated. Can be inserted in the expected response/headers and
+  //validation rules are defined in custom_functions_api.rb file in the validate_special_value function.
+  "validation_keys": [
+	"ANYTHING",
+	"NOTHING",
+	"STRING",
+	"INTEGER",
+	"INTEGER_POSITIVE",
+	"STRING_NUMERIC",
+    "STRING_ALPHA_NUMERIC",
+	"STRING_NUMERIC_POSITIVE",
+	"CURRENT_UTC",
+	"DATE_TIME"
+//	"DATE_TIME_OR_NULL",
+//	"STRING_OR_NULL",
+//	"DT_FULL_YEAR_TIME_ZONE",
+//	"DATE_TIME_Y_l",
+//	"DATE_TIME_Y"
+  ]
+}

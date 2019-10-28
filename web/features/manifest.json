@@ -1,0 +1,59 @@
+{
+  "params": {
+    "browser": "GC",
+    "version": "77.0",
+    "script_file": "sf_acc_con.feature",
+    "use_predefined_libraries": true,
+    "include_screenshots": false,
+    "capture_all_screenshots": false,
+    "capture_video": false,
+    "capture_live_video": false,
+    "live_video_streaming_url": "",
+    "capture_android_logs": false,
+    "runner_options": null,
+    "log_properties": {
+      "sequence": 0,
+      "job_id": 22798,
+      "project_version_id": null,
+      "project_id": 24,
+      "test_run_id": 65962,
+      "script_id": 297,
+      "company_id": 18,
+      "test_case_id": 362,
+      "test_case_name": "Accounts-Contacts",
+      "test_category_id": 195
+    },
+    "log_queue": "regression_test_logs",
+    "log_class": "RegressionTest::Log",
+    "notify_queue": "notifications",
+    "notify_class": "RegressionTest::TestRun",
+    "notify_id": 65962,
+    "is_debugging": false,
+    "has_video_playback": false,
+    "upload_all_screenshots_together": false,
+    "report_upload_url": "https://awetest.com:443/test_runs/65962/upload_report?user_credentials=C2KGrNRYka9FKhwWRvb",
+    "custom_test_variable": {},
+    "screencap_path": "/home/awetest/app/tomcat/webapps/ROOT/WEB-INF/tmp",
+    "environment": {
+      "name": "production",
+      "url": "http://www.salesforce.com",
+      "nodename": "",
+      "var1": null,
+      "var2": null,
+      "var3": null
+    },
+    "common_assets_download_url": "https://awetest.com:443/common/variable_documents/download_all?project_id=24&user_credentials=C2KGrNRYka9FKhwWRvb",
+    "common_assets_ids": [],
+    "current_common_assets_url": "https://awetest.com:443/common/variable_documents/current_common_assets?project_id=24&user_credentials=C2KGrNRYka9FKhwWRvb",
+    "library": "",
+    "variable_document_path": [
+      "lead_wb.csv"
+    ],
+    "variables": {
+      "Salesforce": {
+        "username": "tilak@3qilabs.com",
+        "password": "DevPortal3Qi"
+      }
+    }
+  }
+}

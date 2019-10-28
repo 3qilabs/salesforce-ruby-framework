@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="style.css" rel="stylesheet"/>
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript">
+			$(document).ready(function() {
+
+					//Hide show expanded block
+					$(".expand-button").click(function() {
+							var targetEl = $(this).attr("data-target");
+
+							if(targetEl == "all") {
+									if(isAllClosed(".inner-table-wrapper")) {
+											$(".inner-table-wrapper").removeClass("hide");
+											$(".expand-button").removeClass("closed");
+									} else {
+											$(".inner-table-wrapper").addClass("hide");
+											$(".expand-button").addClass("closed");
+									}
+							} else {
+									$(targetEl).find(".inner-table-wrapper").toggleClass("hide");
+									$(this).toggleClass("closed");
+							}
+					});
+
+					function isAllClosed(elem) {
+							var result = true;
+							$(elem).each(function(index, current) {
+									if(!$(current).hasClass("hide")) result = false;
+							});
+							return result;
+					}
+			});
+</script>
+
+</head>
+<body>
+    <div class="left-tab"></div>
+    <div class="wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="gl_page_inner">
+                    <div class="design-body">
+                        <div class="information-table">
+                            <div class="table-control-row">
+                                <p class="active left-control expand-button closed" data-target="all">EXPAND ALL</p>
+                                <p class="right-control active">ALL</p>
+                                <p class="right-control">ERRORS</p>
+                                <p class="right-control">SHOW</p>
+                            </div>
+
+                            <table class="inf-table">
+                                <thead class="table-head">
+                                <tr>
+                                    <th width="39">#</th>
+                                    <th width="80">ID</th>
+                                    <th width="121">URL</th>
+                                    <th width="230">Scenario</th>
+                                    <th width="96">Date/Time</th>
+                                    <th width="67">Method</th>
+                                    <th width="90">Duration</th>
+                                    <th width="86">Exp Code</th>
+                                    <th width="86">Actual Code</th>
+                                    <th width="88">Result</th>
+                                </tr>
+                                </thead>
+
+                                <tbody><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-1'>1</td>
+                                    <td width='80'>1</td>
+                                    <td width='121'><a href='' class='table-link'></a></td>
+                                    <td width='235'></td>
+                                    <td width='96'>2019-10-23 13:40:03 -0700</td>
+                                    <td width='67'></td>
+                                    <td width='90'></td>
+                                    <td width='86'></td>
+                                    <td width='86'></td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-1'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br></td>
+                                                    <td>Expected Headers<br></td>
+                                                    <td>Actual Headers<br></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-2'>2</td>
+                                    <td width='80'>2</td>
+                                    <td width='121'><a href='' class='table-link'></a></td>
+                                    <td width='235'></td>
+                                    <td width='96'>2019-10-23 13:46:54 -0700</td>
+                                    <td width='67'></td>
+                                    <td width='90'></td>
+                                    <td width='86'></td>
+                                    <td width='86'></td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-2'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br></td>
+                                                    <td>Expected Headers<br></td>
+                                                    <td>Actual Headers<br></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-3'>3</td>
+                                    <td width='80'>3</td>
+                                    <td width='121'><a href='' class='table-link'></a></td>
+                                    <td width='235'></td>
+                                    <td width='96'>2019-10-23 13:47:24 -0700</td>
+                                    <td width='67'></td>
+                                    <td width='90'></td>
+                                    <td width='86'></td>
+                                    <td width='86'></td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-3'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br></td>
+                                                    <td>Expected Headers<br></td>
+                                                    <td>Actual Headers<br></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr><tr>
+                                    <td width='39' class='expand-button closed' data-target='.expand-4'>4</td>
+                                    <td width='80'>4</td>
+                                    <td width='121'><a href='' class='table-link'></a></td>
+                                    <td width='235'></td>
+                                    <td width='96'>2019-10-23 13:47:49 -0700</td>
+                                    <td width='67'></td>
+                                    <td width='90'></td>
+                                    <td width='86'></td>
+                                    <td width='86'></td><td width='90' class='result-pass'><span class='sprite sprite-i-passed-green'></span>Pass</td></tr>
+                                <tr class='expand-row expand-4'>
+                                    <td class='no-padding no-border' colspan='10'>
+                                        <div class='inner-table-wrapper hide'>
+                                            <table class='inf-table'>
+                                                <tr>
+                                                    <th>Request</th>
+                                                    <th>Expected Response</th>
+                                                    <th>Actual Response</th>
+                                                </tr><tr>
+                                                    <td>Headers<br></td>
+                                                    <td>Expected Headers<br></td>
+                                                    <td>Actual Headers<br></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Payload<br></td>
+                                                    <td>Expected Response<br></td>
+                                                    <td>Actual Response<br></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
